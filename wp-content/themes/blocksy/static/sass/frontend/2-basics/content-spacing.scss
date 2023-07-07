@@ -1,0 +1,43 @@
+p {
+	margin-bottom: var(--content-spacing);
+}
+
+
+ul, ol {
+	padding-inline-start: var(--listIndent);
+	margin-bottom: var(--content-spacing);
+
+	li {
+		margin-bottom: var(--listItemSpacing);
+	}
+
+	ul, ol {
+		margin-top: var(--listItemSpacing);
+		margin-bottom: 0;
+	}
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+	margin-bottom: calc(var(--has-content-spacing, 1) * (0.3em + 10px));
+}
+
+
+.entry-content {
+
+	// headings top spacing
+	* {
+
+		+ :is(h1, h2, h3, h4, h5, h6) {
+			margin-top: var(--content-spacing);
+		}
+	}
+
+	// other elements
+	> * {
+
+		&:not(p, ul, ol, h1, h2, h3, h4, h5, h6) {
+			margin-bottom: var(--content-spacing);
+		}
+	}
+}
